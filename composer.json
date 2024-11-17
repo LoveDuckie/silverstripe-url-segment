@@ -1,11 +1,23 @@
 {
-    "name": "silverstripe-module/skeleton",
-    "description": "A skeleton for Silverstripe CMS modules.",
+    "name": "loveduckie/silverstripe-url-segment",
+    "description": "A module for conveniently generating URL segments for your DataObjects in SilverStripe.",
     "type": "silverstripe-vendormodule",
     "keywords": [
         "silverstripe",
         "CMS"
     ],
+    "authors": [
+        {
+            "name": "Luc Shelton",
+            "email": "lucshelton@gmail.com",
+            "homepage": "https://www.lucshelton.com",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "email": "lucshelton@gmail.com",
+        "issues": "https://github.com/LoveDuckie/silverstripe-url-segment/issues"
+    },
     "license": "BSD-3-Clause",
     "require": {
         "silverstripe/framework": "^5.0",
@@ -19,8 +31,8 @@
     },
     "autoload": {
         "psr-4": {
-            "SilverStripeModule\\Skeleton\\": "src/",
-            "SilverStripeModule\\Skeleton\\Tests\\": "tests/php/"
+            "LoveDuckie\\SilverStripe\\URLSegment\\": "src/",
+            "LoveDuckie\\SilverStripe\\URLSegment\\Tests\\": "tests/php/"
         }
     },
     "extra": {
@@ -29,5 +41,12 @@
         ]
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true,
+            "phpstan/extension-installer": true,
+            "silverstripe/vendor-plugin": true
+        }
+    }
 }
