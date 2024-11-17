@@ -5,17 +5,24 @@ namespace LoveDuckie\SilverStripe\URLSegment\Extensions;
 use Exception;
 use Portfolio\Models\EventImage;
 use Portfolio\Models\ProjectImage;
+use Psr\Container\NotFoundExceptionInterface;
 use Psr\Log\LoggerInterface;
+use SilverStripe\Core\Config\Configurable;
 use SilverStripe\Core\Injector\Injector;
 use SilverStripe\ORM\DataExtension;
 use SilverStripe\View\Parsers\URLSegmentFilter;
 
 class URLSegmentDataObjectExtension extends DataExtension
 {
+    use Configurable;
+
     private static $db = [
         'URLSegment' => 'Varchar(255)'
     ];
 
+    /**
+     * @return void
+     */
     public function onBeforeWrite(): void
     {
         parent::onBeforeWrite();
@@ -39,6 +46,9 @@ class URLSegmentDataObjectExtension extends DataExtension
         }
     }
 
+    /**
+     * @return string|null
+     */
     private function getPageTitle(): ?string
     {
         if ($this->owner instanceof ProjectImage) {
@@ -52,6 +62,9 @@ class URLSegmentDataObjectExtension extends DataExtension
         return null;
     }
 
+    /**
+     * @return void
+     */
     public function onAfterWrite(): void
     {
         if ($this->owner instanceof EventImage || $this->owner instanceof ProjectImage) {
@@ -59,6 +72,10 @@ class URLSegmentDataObjectExtension extends DataExtension
         }
     }
 
+    /**
+     * @return void
+     * @throws NotFoundExceptionInterface
+     */
     private function updateFileName(): void
     {
         $currentFileName = $this->owner->getFilename();
@@ -87,6 +104,9 @@ class URLSegmentDataObjectExtension extends DataExtension
         return $items->exists();
     }
 
+    /**
+     * @return void
+     */
     private function makeUrlSegmentUnique(): void
     {
         $count = 2;
