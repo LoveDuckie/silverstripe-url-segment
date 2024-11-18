@@ -1,1 +1,6 @@
-# see https://docs.silverstripe.org/en/developer_guides/configuration/configuration/
+---
+Name: loveduckie-silverstripe-url-segment
+---
+LoveDuckie\SilverStripe\URLSegment\Extensions\URLSegmentDataObjectExtension:
+  config:
+    image_types:

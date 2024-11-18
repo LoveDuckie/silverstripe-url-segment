@@ -20,6 +20,20 @@ class URLSegmentDataObjectExtension extends DataExtension
         'URLSegment' => 'Varchar(255)'
     ];
 
+    private function getConfig(string $property)
+    {
+        $config = $this->config();
+        if (!$config->get($property)) {
+            throw new Exception("Unable to find ${property}");
+        }
+        $config->get($property);
+    }
+
+    private function getImageTypes(): array
+    {
+        return $this->getConfig('config')['image_types'];
+    }
+
     /**
      * @return void
      */
