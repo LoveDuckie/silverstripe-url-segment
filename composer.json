@@ -2,6 +2,7 @@
     "name": "loveduckie/silverstripe-url-segment",
     "description": "A module for conveniently generating URL segments for your DataObjects in SilverStripe.",
     "type": "silverstripe-vendormodule",
+    "homepage": "https://lucshelton.com",
     "keywords": [
         "silverstripe",
         "CMS"
